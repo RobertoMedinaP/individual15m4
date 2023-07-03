@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.individual15m4.databinding.FragmentPreguntaBinding;
 
@@ -17,6 +18,7 @@ import com.example.individual15m4.databinding.FragmentPreguntaBinding;
 public class PreguntaFragment extends Fragment {
 
     private FragmentPreguntaBinding pbinding;
+    private int opcion= -1;
 
 
     private static final String ARG_PARAM1 = "clave1";
@@ -71,27 +73,41 @@ public class PreguntaFragment extends Fragment {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 int index=pbinding.radiogroup.indexOfChild(pbinding.radiogroup.findViewById(i));
-                switch (index){
+                opcion=index;
+                /*switch (index){
                     case 0:
-                        enviarstring(mParam1);
+                        opcion=0;
                         break;
 
                     case 1:
-                        enviarstring(mParam1);
+                        opcion=1;
                         break;
 
                     case 2:
-                        enviarcorrecta(mParam1);
+                        opcion=2;
                         break;
 
                     case 3:
-                        enviarstring(mParam1);
+                        opcion=3;
                         break;
 
                     default:
                         break;
-                }
+                }*/
 
+            }
+        });
+
+        pbinding.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (opcion==-1){
+                    Toast.makeText(getContext(), "Elija una opción", Toast.LENGTH_SHORT).show();
+                } else if (opcion==2) {
+                    enviarcorrecta(mParam1);
+                }else {
+                    enviarstring(mParam1);
+                }
             }
         });
 
