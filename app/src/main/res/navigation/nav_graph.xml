@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_inicio" >
         <action
             android:id="@+id/action_inicio_to_pregunta"
-            app:destination="@id/pregunta" />
+            app:destination="@id/pregunta"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/pregunta"
@@ -21,10 +22,14 @@
         tools:layout="@layout/fragment_pregunta" >
         <action
             android:id="@+id/action_pregunta_to_respuestaEquivocada"
-            app:destination="@id/respuestaEquivocada" />
+            app:destination="@id/respuestaEquivocada"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
         <action
             android:id="@+id/action_pregunta_to_respuestaCorrectaFragment"
-            app:destination="@id/respuestaCorrectaFragment" />
+            app:destination="@id/respuestaCorrectaFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/respuestaEquivocada"
@@ -33,7 +38,9 @@
         tools:layout="@layout/fragment_respuesta_equivocada" >
         <action
             android:id="@+id/action_respuestaEquivocada_to_inicio"
-            app:destination="@id/inicio" />
+            app:destination="@id/inicio"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/respuestaCorrectaFragment"
@@ -42,6 +49,8 @@
         tools:layout="@layout/fragment_respuesta_correcta" >
         <action
             android:id="@+id/action_respuestaCorrectaFragment_to_inicio"
-            app:destination="@id/inicio" />
+            app:destination="@id/inicio"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
 </navigation>
